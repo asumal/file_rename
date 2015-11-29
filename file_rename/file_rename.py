@@ -17,12 +17,14 @@ class GenericParent(object):
 
 class ListOfFiles(GenericParent):
     def __init__(self, path_to_files):
-        self.path_to_files = get_files(path_to_files)
+        self.directory = path_to_files
+        self.files = get_files(path_to_files)
+        self.num_files = len(self.files)
+
 
 
 def get_files(path_to_file):
     result =  [f for f in listdir(path_to_file) if isfile(join(path_to_file, f))]
-    print result
     return result
 
 
